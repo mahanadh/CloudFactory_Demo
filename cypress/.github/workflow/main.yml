@@ -1,0 +1,14 @@
+name: E2E tests
+on:
+      push:
+        branches:
+          - master
+      pull_request:
+        types: [opened, synchronize, reopened]
+        branches:
+          - master
+steps:
+        - name: Setup npm package
+          run: npm install
+        - name: Run E2E test
+          uses: npx cypress run --record --key 61753abd-b076-4ca7-988d-062e9c187923
